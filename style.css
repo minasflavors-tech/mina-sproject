@@ -1,0 +1,285 @@
+:root {
+  --bg: #f8f5f1;
+  --ink: #2a1b17;
+  --muted: #6b5e58;
+  --card: #ffffff;
+  --line: #e9ddd5;
+  --accent: #ce5a2d;
+  --accent-dark: #9e4221;
+  --ok-bg: #effdf4;
+  --ok-line: #83c89b;
+  --error-bg: #fff1f1;
+  --error-line: #f2bcbc;
+}
+
+[data-theme="dark"] {
+  --bg: #171311;
+  --ink: #f4e9df;
+  --muted: #c3b2a7;
+  --card: #251d1a;
+  --line: #4a3931;
+  --accent: #ef8d62;
+  --accent-dark: #d27147;
+  --ok-bg: #1d2d23;
+  --ok-line: #4f8e64;
+  --error-bg: #332020;
+  --error-line: #8f5555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(900px 500px at 0% -10%, #ffe4d3 0%, transparent 60%),
+    radial-gradient(700px 420px at 100% 0%, #ffe9cc 0%, transparent 55%),
+    var(--bg);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 78%, transparent);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalog,
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(82, 50, 39, 0.08);
+}
+
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.cake-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.cake-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--card);
+}
+
+.cake-item h3 {
+  margin: 0 0 6px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin: 10px 0 6px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #d8c3b6;
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--card);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #ffe0cc;
+  border-color: var(--accent);
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+}
+
+.btn.ghost {
+  background: var(--card);
+  color: var(--accent-dark);
+  border: 1px solid var(--line);
+}
+
+.icon-btn {
+  min-width: 44px;
+  padding: 10px;
+}
+
+.btn.full {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.cart-box {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--card);
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 6px;
+}
+
+.totals {
+  margin-top: 14px;
+}
+
+.totals p {
+  margin: 6px 0;
+}
+
+.totals .grand {
+  font-size: 1.1rem;
+}
+
+.result {
+  margin-top: 12px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.result.success {
+  border: 1px solid var(--ok-line);
+  background: var(--ok-bg);
+  padding: 12px;
+}
+
+.result.error {
+  border: 1px solid var(--error-line);
+  background: var(--error-bg);
+  padding: 12px;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 0 20px 20px;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions .btn {
+    flex: 1;
+  }
+}

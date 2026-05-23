@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mina's flavors - Commande de Gateaux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="82973.png" alt="Logo Mina's flavors">
+      <div>
+        <h1>Mina's flavors</h1>
+        <p>Commande de gateaux a domicile</p>
+      </div>
+    </div>
+    <nav class="actions">
+      <button id="theme-toggle" class="btn ghost icon-btn" type="button" aria-label="Activer le mode sombre">🌙</button>
+      <a id="whatsapp-link" class="btn ghost" href="#" target="_blank" rel="noopener">Contactez-nous</a>
+      <a id="bug-link" class="btn" href="#">Signaler un bug</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="catalog">
+      <h2>Choisissez vos gateaux</h2>
+      <p class="muted">Selectionnez un article, personnalisez-le puis ajoutez-le a votre commande.</p>
+
+      <div id="cake-grid" class="cake-grid"></div>
+    </section>
+
+    <aside class="panel">
+      <h2>Votre commande</h2>
+
+      <form id="order-form" novalidate>
+        <label for="name">Nom complet</label>
+        <input id="name" name="name" type="text" required placeholder="Ex: Sarah Amrani">
+
+        <label for="phone">Telephone</label>
+        <input id="phone" name="phone" type="tel" required placeholder="Ex: 06 12 34 56 78">
+
+        <label for="address">Adresse de livraison</label>
+        <textarea id="address" name="address" rows="3" required placeholder="Rue, ville, code postal"></textarea>
+
+        <label for="delivery">Livraison</label>
+        <select id="delivery" name="delivery">
+          <option value="normal" data-fee="20">Standard (60-90 min) - 20 MAD</option>
+          <option value="express" data-fee="45">Express (30-45 min) - 45 MAD</option>
+        </select>
+      </form>
+
+      <div class="cart-box">
+        <h3>Panier</h3>
+        <ul id="cart-list" class="cart-list"></ul>
+        <p id="empty-cart" class="muted">Aucun gateau ajoute pour le moment.</p>
+      </div>
+
+      <div class="totals">
+        <p>Sous-total: <strong id="subtotal">0 MAD</strong></p>
+        <p>Livraison: <strong id="delivery-fee">0 MAD</strong></p>
+        <p class="grand">Total: <strong id="grand-total">0 MAD</strong></p>
+      </div>
+
+      <button id="submit-order" type="button" class="btn full">Envoyer la demande</button>
+      <section id="result" class="result" aria-live="polite"></section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>Application de commande simple inspiree des apps de livraison.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
