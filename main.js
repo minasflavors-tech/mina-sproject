@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '212600000000';
+const WHATSAPP_NUMBER = '0666114128';
 const OWNER_EMAIL = 'owner@example.com';
 
 const cakes = [
