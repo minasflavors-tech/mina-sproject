@@ -22,49 +22,83 @@
     </nav>
   </header>
 
-  <main class="layout">
-    <section class="catalog">
-      <h2>Choisissez vos gateaux</h2>
-      <p class="muted">Selectionnez un article, personnalisez-le puis ajoutez-le a votre commande.</p>
-
-      <div id="cake-grid" class="cake-grid"></div>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Patisserie Artisanale</p>
+        <h2>Gateaux de fete elegants, frais et livres chez vous</h2>
+        <p class="muted">Des recettes maison avec des ingredients premium, une deco soignee et des saveurs pensees pour anniversaires, mariages et evenements.</p>
+      </div>
+      <figure class="hero-media">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80" alt="Gateau au chocolat style patisserie en decoration realiste">
+      </figure>
     </section>
 
-    <aside class="panel">
-      <h2>Votre commande</h2>
+    <section class="layout">
+      <section class="catalog">
+        <h2>Choisissez vos gateaux</h2>
+        <p class="muted">Selectionnez un article, personnalisez-le puis ajoutez-le a votre commande.</p>
+        <div id="cake-grid" class="cake-grid"></div>
+      </section>
 
-      <form id="order-form" novalidate>
-        <label for="name">Nom complet</label>
-        <input id="name" name="name" type="text" required placeholder="Ex: Sarah Amrani">
+      <aside class="panel">
+        <h2>Votre commande</h2>
 
-        <label for="phone">Telephone</label>
-        <input id="phone" name="phone" type="tel" required placeholder="Ex: 06 12 34 56 78">
+        <form id="order-form" novalidate>
+          <label for="name">Nom complet</label>
+          <input id="name" name="name" type="text" required placeholder="Ex: Sarah Amrani">
 
-        <label for="address">Adresse de livraison</label>
-        <textarea id="address" name="address" rows="3" required placeholder="Rue, ville, code postal"></textarea>
+          <label for="phone">Telephone</label>
+          <input id="phone" name="phone" type="tel" required placeholder="Ex: 06 12 34 56 78">
 
-        <label for="delivery">Livraison</label>
-        <select id="delivery" name="delivery">
-          <option value="normal" data-fee="20">Standard (60-90 min) - 20 MAD</option>
-          <option value="express" data-fee="45">Express (30-45 min) - 45 MAD</option>
-        </select>
-      </form>
+          <label for="address">Adresse de livraison</label>
+          <textarea id="address" name="address" rows="3" required placeholder="Rue, ville, code postal"></textarea>
 
-      <div class="cart-box">
-        <h3>Panier</h3>
-        <ul id="cart-list" class="cart-list"></ul>
-        <p id="empty-cart" class="muted">Aucun gateau ajoute pour le moment.</p>
+          <label for="delivery">Livraison</label>
+          <select id="delivery" name="delivery">
+            <option value="normal" data-fee="20">Standard (60-90 min) - 20 MAD</option>
+            <option value="express" data-fee="45">Express (30-45 min) - 45 MAD</option>
+          </select>
+        </form>
+
+        <div class="cart-box">
+          <h3>Panier</h3>
+          <ul id="cart-list" class="cart-list"></ul>
+          <p id="empty-cart" class="muted">Aucun gateau ajoute pour le moment.</p>
+        </div>
+
+        <div class="totals">
+          <p>Sous-total: <strong id="subtotal">0 MAD</strong></p>
+          <p>Livraison: <strong id="delivery-fee">0 MAD</strong></p>
+          <p class="grand">Total: <strong id="grand-total">0 MAD</strong></p>
+        </div>
+
+        <button id="submit-order" type="button" class="btn full">Envoyer la demande</button>
+        <section id="result" class="result" aria-live="polite"></section>
+      </aside>
+    </section>
+
+    <section class="recipes">
+      <h2>Nos recettes vedettes</h2>
+      <p class="muted">Inspiration de vraies recettes de patisserie, adaptees en format celebration.</p>
+      <div class="recipe-grid">
+        <article class="recipe-card">
+          <h3>Red Velvet Cream</h3>
+          <p>Base cacao doux, buttermilk, creme cheese vanilla et finition velours rouge.</p>
+          <span>Temps prep: 45 min</span>
+        </article>
+        <article class="recipe-card">
+          <h3>Choco Ganache Supreme</h3>
+          <p>Gateau chocolat intense, ganache noire 70%, insert caramel et eclats noisette.</p>
+          <span>Temps prep: 55 min</span>
+        </article>
+        <article class="recipe-card">
+          <h3>Fraise Nuage</h3>
+          <p>Gennoise legere, creme diplomate, fraises fraiches et nappage miroir fruite.</p>
+          <span>Temps prep: 40 min</span>
+        </article>
       </div>
-
-      <div class="totals">
-        <p>Sous-total: <strong id="subtotal">0 MAD</strong></p>
-        <p>Livraison: <strong id="delivery-fee">0 MAD</strong></p>
-        <p class="grand">Total: <strong id="grand-total">0 MAD</strong></p>
-      </div>
-
-      <button id="submit-order" type="button" class="btn full">Envoyer la demande</button>
-      <section id="result" class="result" aria-live="polite"></section>
-    </aside>
+    </section>
   </main>
 
   <footer class="footer">
