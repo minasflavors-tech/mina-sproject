@@ -39,6 +39,18 @@ body {
     radial-gradient(760px 480px at 115% 0%, #ffeac9 0%, transparent 55%),
     repeating-linear-gradient(135deg, rgba(255, 224, 202, 0.15) 0 8px, transparent 8px 16px),
     var(--bg);
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
 }
 
 .topbar {
@@ -137,9 +149,14 @@ body {
   display: block;
 }
 
+.hero-media img,
+.cake-photo {
+  -webkit-user-drag: none;
+}
+
 .layout {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
@@ -168,7 +185,7 @@ h3 {
 
 .cake-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
   margin-top: 14px;
 }
@@ -176,12 +193,94 @@ h3 {
 .cake-item {
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 14px;
+  overflow: hidden;
+  position: relative;
   background: color-mix(in srgb, var(--card) 88%, #fff8f1);
 }
 
-.cake-item h3 {
-  margin: 0 0 6px;
+.cake-head {
+  display: block;
+}
+
+.cake-photo {
+  width: 100%;
+  height: 190px;
+  border-radius: 0;
+  object-fit: cover;
+  border: 0;
+  background: linear-gradient(135deg, #ffd8bf, #f0916a);
+  box-shadow: none;
+}
+
+.cake-head h3 {
+  margin: 0;
+  padding: 14px 14px 0;
+}
+
+.promo-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1f8a70, #0f5f4e);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
+}
+
+.cake-content {
+  padding: 0 14px 14px;
+}
+
+.price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.price-old {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+.ingredients {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.ingredients summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--accent-dark);
+  list-style: none;
+}
+
+.ingredients summary::-webkit-details-marker {
+  display: none;
+}
+
+.ingredients ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.ingredients li + li {
+  margin-top: 4px;
+}
+
+.cake-photo,
+.category-tab,
+.cart-fab,
+.btn,
+summary {
+  -webkit-user-drag: none;
 }
 
 .row {
@@ -191,6 +290,43 @@ h3 {
 
 .row > * {
   flex: 1;
+}
+
+.catalog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.category-tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  padding: 9px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-color: transparent;
+}
+
+.catalog-meta {
+  margin-top: 8px;
+  color: var(--accent-dark);
+  font-weight: 700;
 }
 
 label {
@@ -311,6 +447,73 @@ select:focus {
   padding: 12px;
 }
 
+.cart-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 16px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 16px 28px rgba(82, 50, 39, 0.24);
+  cursor: pointer;
+  z-index: 30;
+}
+
+.cart-fab-icon {
+  font-size: 1.1rem;
+}
+
+.cart-count {
+  min-width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.cart-drawer {
+  position: fixed;
+  right: 18px;
+  bottom: 78px;
+  width: min(420px, calc(100vw - 36px));
+  max-height: min(82vh, 760px);
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  background: var(--card);
+  box-shadow: 0 24px 42px rgba(82, 50, 39, 0.22);
+  z-index: 29;
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.cart-drawer.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.cart-drawer-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -350,6 +553,14 @@ select:focus {
   .recipe-grid {
     grid-template-columns: 1fr;
   }
+
+  .catalog-head {
+    flex-direction: column;
+  }
+
+  .category-tabs {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -368,5 +579,16 @@ select:focus {
 
   .page-shell {
     padding: 14px;
+  }
+
+  .cart-fab {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .cart-drawer {
+    right: 12px;
+    bottom: 74px;
+    width: calc(100vw - 24px);
   }
 }
